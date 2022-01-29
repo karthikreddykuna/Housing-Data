@@ -10,13 +10,13 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 
 # NOTE: Make sure that the outcome column is labeled 'target' in the data file
-tpot_data = pd.read_csv('https://raw.githubusercontent.com/karthikreddykuna/Housing-Data/master2/prepared_data.csv')
+tpot_data = pd.read_csv('https://raw.githubusercontent.com/karthikreddykuna/Housing-Data/master/prepared_data.csv')
 features = tpot_data.drop('target', axis=1)
 training_features, testing_features, training_target, testing_target = \
             train_test_split(features, tpot_data['target'], random_state=None)
 
-# Average CV score on the training set was: -54448.82731148376
-exported_pipeline = DecisionTreeRegressor(max_depth=6, min_samples_leaf=17, min_samples_split=14)
+# Average CV score on the training set was: -54804.51200232082
+exported_pipeline = DecisionTreeRegressor(max_depth=6, min_samples_leaf=13, min_samples_split=14)
 
 exported_pipeline.fit(training_features, training_target)
 
@@ -24,7 +24,7 @@ exported_pipeline.fit(training_features, training_target)
 ######################
 # User defined values
 title = 'Project Name for Streamlit'
-encoder_location = 'https://github.com/karthikreddykuna/Housing-Data/blob/master2/encoder.pkl?raw=true'
+encoder_location = 'https://github.com/karthikreddykuna/Housing-Data/blob/master/encoder.pkl?raw=true'
 target_encoder_location = ''
 if len(encoder_location) > 5:
     mfile = BytesIO(requests.get(encoder_location).content)
