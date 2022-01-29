@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeRegressor
 
 # NOTE: Make sure that the outcome column is labeled 'target' in the data file
-tpot_data = pd.read_csv('https://raw.githubusercontent.com/karthikreddykuna/Housing-Data/master1/prepared_data.csv')
+tpot_data = pd.read_csv('https://raw.githubusercontent.com/karthikreddykuna/Housing-Data/master2/prepared_data.csv')
 features = tpot_data.drop('target', axis=1)
 training_features, testing_features, training_target, testing_target = \
             train_test_split(features, tpot_data['target'], random_state=None)
@@ -24,7 +24,7 @@ exported_pipeline.fit(training_features, training_target)
 ######################
 # User defined values
 title = 'Project Name for Streamlit'
-encoder_location = 'https://github.com/karthikreddykuna/Housing-Data/blob/master1/encoder.pkl?raw=true'
+encoder_location = 'https://github.com/karthikreddykuna/Housing-Data/blob/master2/encoder.pkl?raw=true'
 target_encoder_location = ''
 if len(encoder_location) > 5:
     mfile = BytesIO(requests.get(encoder_location).content)
