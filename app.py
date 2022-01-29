@@ -6,8 +6,8 @@ import pandas as pd
 # Code from Best Pipeline.py here
 
 
-from sklearn.linear_model import LassoLarsCV
 from sklearn.model_selection import train_test_split
+from sklearn.tree import DecisionTreeRegressor
 
 # NOTE: Make sure that the outcome column is labeled 'target' in the data file
 tpot_data = pd.read_csv('https://raw.githubusercontent.com/karthikreddykuna/Housing-Data/master/prepared_data.csv')
@@ -15,8 +15,8 @@ features = tpot_data.drop('target', axis=1)
 training_features, testing_features, training_target, testing_target = \
             train_test_split(features, tpot_data['target'], random_state=None)
 
-# Average CV score on the training set was: -54834.90739282762
-exported_pipeline = LassoLarsCV(normalize=True)
+# Average CV score on the training set was: -54448.82731148376
+exported_pipeline = DecisionTreeRegressor(max_depth=6, min_samples_leaf=17, min_samples_split=14)
 
 exported_pipeline.fit(training_features, training_target)
 
