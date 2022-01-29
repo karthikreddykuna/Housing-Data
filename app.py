@@ -10,7 +10,7 @@ from sklearn.linear_model import LassoLarsCV
 from sklearn.model_selection import train_test_split
 
 # NOTE: Make sure that the outcome column is labeled 'target' in the data file
-tpot_data = pd.read_csv('https://raw.githubusercontent.com/karthikreddykuna/master/prepared_data.csv')
+tpot_data = pd.read_csv('https://raw.githubusercontent.com/karthikreddykuna/Housing-Data/master/prepared_data.csv')
 features = tpot_data.drop('target', axis=1)
 training_features, testing_features, training_target, testing_target = \
             train_test_split(features, tpot_data['target'], random_state=None)
